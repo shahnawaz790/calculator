@@ -110,5 +110,11 @@ public class Sum {
 		return result;
 	}
 	
+	public int addNegativeWithRangeValidation(String n) throws IllegalArgumentException {
+		int result = 0;
+	
+		return result;
+	}
+	
 	
 }

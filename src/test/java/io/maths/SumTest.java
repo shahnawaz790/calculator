@@ -49,4 +49,17 @@ private Sum sum;
 		assertEquals(3, sum.addMultipleDelimeter("//;\n1;2"),
 				"should return three where the default delimiter is ‘;’");
 	}
+	
+	@Test 
+	void testNumberRange100(){
+		assertEquals(2, sum.addNegativeWithRangeValidation("2,1001"), 
+				"Number above 1000 should be ignore");
+	}
+	
+	
+	@Test 
+	void testAnylengthDelimeter(){
+		assertEquals(3, sum.addNegativeWithRangeValidation("//#abc#\n1#abc#2"), 
+				"should return three where the default delimiter is ‘#abc#’");
+	}
 }
