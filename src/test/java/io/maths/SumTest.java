@@ -37,4 +37,10 @@ private Sum sum;
 		assertEquals(6, sum.addManyNumbers("3,2,1"),
 				"Sum of of values should be six");
 	}
+	
+	@Test
+	void testPassingValueInNewLine() {
+		assertEquals(6, sum.addNewLineDelimeter("1\n2,3"),
+				"Sum of of values should be six");
+	}
 }
