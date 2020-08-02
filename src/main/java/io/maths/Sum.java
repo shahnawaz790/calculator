@@ -112,7 +112,40 @@ public class Sum {
 	
 	public int addNegativeWithRangeValidation(String n) throws IllegalArgumentException {
 		int result = 0;
-	
+		int number;
+		boolean delimeterFound = false;
+		String[] numbers;
+		String delimeter = ",";
+		if(n == null || n.length() == 0) {
+			return result;
+		}
+		numbers = n.split("\n");
+		if(numbers.length > 1 && numbers[0].contains("//")) {
+			delimeter = numbers[0].replace("//", "");
+			delimeterFound = true;
+			n = numbers[1];
+		}
+		if(!delimeterFound) {
+			n = n.replace("\n", delimeter);
+		}
+		
+		
+		// splitting string into array
+		numbers = n.split(delimeter);
+		
+		// calculate sum of numbers
+		for(int i=0; i < numbers.length ; i++) {
+			number = Integer.parseInt(numbers[i]);
+			if(numbers == null || number < 0) {
+				throw new IllegalArgumentException("Provided invalid string or negative number");
+			}
+			
+			if(number > 1000) { // ignore if number is greater than 1000
+				number = 0;
+			}
+			
+			result += number;
+		}
 		return result;
 	}
 	
