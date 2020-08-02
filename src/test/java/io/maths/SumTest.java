@@ -31,4 +31,10 @@ private Sum sum;
 		assertEquals(5, sum.add("3,2"),
 				"Sum of of values should be two");
 	}
+	
+	@Test
+	void testPassingManyValues() {
+		assertEquals(6, sum.addManyNumbers("3,2,1"),
+				"Sum of of values should be six");
+	}
 }

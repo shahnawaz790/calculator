@@ -26,5 +26,27 @@ public class Sum {
 		return result;
 	}
 	
+	public int addManyNumbers(String n) throws IllegalArgumentException {
+		int result = 0;
+		if(n == null || n.length() == 0) {
+			return result;
+		}
+		
+		// splitting string into array
+		String[] numbers = n.split(",");
+		
+		// calculate sum of numbers
+		for(int i=0; i < numbers.length ; i++) {
+			
+			if(numbers[i] == null || numbers[i].length() == 0) {
+				throw new IllegalArgumentException("Provided invalid string");
+			}
+			
+			result += Integer.parseInt(numbers[i]);
+		}
+		
+		return result;
+	}
+	
 	
 }
