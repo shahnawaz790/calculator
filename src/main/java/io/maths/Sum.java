@@ -74,5 +74,41 @@ public class Sum {
 		return result;
 	}
 	
+	// accept delimeter in first line if provided by user
+	public int addMultipleDelimeter(String n) throws IllegalArgumentException {
+		int result = 0;
+		boolean delimeterFound = false;
+		String[] numbers;
+		String delimeter = ",";
+		if(n == null || n.length() == 0) {
+			return result;
+		}
+		numbers = n.split("\n");
+		if(numbers.length > 1 && numbers[0].contains("//")) {
+			delimeter = numbers[0].replace("//", "");
+			delimeterFound = true;
+			n = numbers[1];
+		}
+		
+		if(!delimeterFound) {
+			n = n.replace("\n", delimeter);
+		}
+		
+		
+		// splitting string into array
+		numbers = n.split(delimeter);
+		
+		// calculate sum of numbers
+		for(int i=0; i < numbers.length ; i++) {
+			if(numbers[i] == null || numbers[i].length() == 0) {
+				throw new IllegalArgumentException("Provided invalid string");
+			}
+			
+			result += Integer.parseInt(numbers[i]);
+		}
+		
+		return result;
+	}
+	
 	
 }

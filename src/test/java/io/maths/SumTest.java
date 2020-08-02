@@ -43,4 +43,10 @@ private Sum sum;
 		assertEquals(6, sum.addNewLineDelimeter("1\n2,3"),
 				"Sum of of values should be six");
 	}
+	
+	@Test
+	void testPassingValueInMultipleDelimeter() {
+		assertEquals(3, sum.addMultipleDelimeter("//;\n1;2"),
+				"should return three where the default delimiter is ‘;’");
+	}
 }
